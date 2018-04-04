@@ -12,7 +12,7 @@ let campaignAddress;
 let campaign;
 
 beforeEach(async () => {
-  accounts = await.eth.getAccounts();
+  accounts = await web3.eth.getAccounts();
 
   factory = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
     .deploy({data: compiledFactory.bytecode})
@@ -32,6 +32,6 @@ beforeEach(async () => {
 describe('Campaigns', () => {
   it('deploys a factory and a campaign', () => {
     assert.ok(factory.options.address);
-    assert.ok(campaign.options.address;
+    assert.ok(campaign.options.address);
   });
 });
