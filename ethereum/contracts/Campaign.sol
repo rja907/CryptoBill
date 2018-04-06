@@ -1,16 +1,16 @@
 pragma solidity ^0.4.17;
 
 contract CampaignFactory {
-  address[] public deployedCampaigns;
+    address[] public deployedCampaigns;
 
-  function createCampaign(uint minimum) public {
-    address newCampaign = new Campaign(minimum, msg.sender);
-    deployedCampaigns.push(newCampaign);
-  }
+    function createCampaign(uint minimum) public {
+        address newCampaign = new Campaign(minimum, msg.sender);
+        deployedCampaigns.push(newCampaign);
+    }
 
-  function getDeployedCampaigns() public view returns (address []){
-    return deployedCampaigns;
-  }
+    function getDeployedCampaigns() public view returns (address[]) {
+        return deployedCampaigns;
+    }
 }
 
 contract Campaign {
@@ -46,28 +46,28 @@ contract Campaign {
 
     function createRequest(string description, uint value, address recipient) public restricted {
         Request memory newRequest = Request({
-            description: description,
-            value: value,
-            recipient: recipient,
-            complete: false,
-            approvalCount: 0
+           description: description,
+           value: value,
+           recipient: recipient,
+           complete: false,
+           approvalCount: 0
         });
         requests.push(newRequest);
     }
 
-    function approveRequest(unit index) public {
-      Request storage request = requests[index];
-      require(approvers[msg.sender]);
-      require(!request.approvals[msg.sender]);
-      request.approvals[msg.sender] = true;
-      request.approvalCount++;
+    function approveRequest(uint index) public {
+        Request storage request = requests[index];
+        require(approvers[msg.sender]);
+        require(!request.approvals[msg.sender]);
+        request.approvals[msg.sender] = true;
+        request.approvalCount++;
     }
 
-    function finalizeRequest(unit index) public restricted{
-      Request storage request = requests[index];
-      require(request.approvalCount > (approversCount / 2));
-      require(!requests.complete);
-      request.recipient.transfer(request.value);
-      requests.complete = true;
+    function finalizeRequest(uint index) public restricted {
+        Request storage request = requests[index];
+        require(request.approvalCount > (approversCount / 2));
+        require(!request.complete);
+        request.recipient.transfer(request.value);
+        request.complete = true;
     }
 }
