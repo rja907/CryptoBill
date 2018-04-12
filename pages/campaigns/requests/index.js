@@ -10,12 +10,13 @@ class RequestIndex extends Component {
     const {address} = props.query;
     const campaign = Campaign(address);
     const requestCount = await campaign.methods.getRequestsCount().call();
+    const approversCount = await campaign.methods.approversCount().call();
     const requests = await Promise.all(
       Array(parseInt(requestCount)).fill().map((element, index) => {
         return campaign.methods.requests(index).call()
       })
     );
-    return { address, requests, requestCount };
+    return { address, requests, requestCount, approversCount };
   }
 
   renderRows() {
@@ -26,6 +27,7 @@ class RequestIndex extends Component {
           id={index}
           request={request}
           address={this.props.address}
+          approversCount={this.props.approversCount}
         />
       );
     })
@@ -40,7 +42,7 @@ class RequestIndex extends Component {
         </h1>
         <Link route={`/campaigns/${this.props.address}/requests/new`}>
           <a>
-            <Button primary>
+            <Button primary floated="right" style={{marginBottom: 10}}>
               Add Request
             </Button>
           </a>
@@ -75,6 +77,7 @@ class RequestIndex extends Component {
             {this.renderRows()}
           </Body>
         </Table>
+        <div>FOUND {this.props.requestCount} REQUEST(S)!</div>
       </Layout>
     );
   }
