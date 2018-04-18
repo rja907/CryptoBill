@@ -1,3 +1,3 @@
-# React Decentralized Application
+# Ethereum Application
 
-This is a Decentralized Application project that uses React for its front end.
+This is a Ethereum Application project that uses React for its front end.
