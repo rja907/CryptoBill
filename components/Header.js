@@ -4,9 +4,9 @@ import { Link } from '../routes';
 
 export default () => {
   return (
-    <Menu style={{ marginTop: '10px' }}>
+    <Menu style={{ marginTop: '10px', background: 'linear-gradient(to bottom right, orange, white, green)'}}>
       <Link route="/">
-        <a className="item">CryptoCrowd</a>
+        <a className="item">CryptoBill</a>
       </Link>
       <Menu.Menu position="right">
         <Link route="/">
