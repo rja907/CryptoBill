@@ -40,7 +40,7 @@ class CampaignIndex extends Component {
               floated="right"
               content="Create Campaign"
               icon="add circle"
-              secondary
+              primary
             />
           </a>
         </Link>
