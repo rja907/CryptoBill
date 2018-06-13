@@ -35,7 +35,7 @@ class CampaignShow extends Component {
       {
         header: manager,
         meta: 'Address of Manager',
-        description: 'The manager created this campaign and can requests to withdraw money!',
+        description: 'The manager created this Drive and can make appeals to withdraw money!',
         style: {overflowWrap: 'break-word'}
       },
       {
@@ -45,18 +45,18 @@ class CampaignShow extends Component {
       },
       {
         header: requestsCount,
-        meta: 'Number of Requests',
-        description: 'A request tries to withdraw money from the contract! Requests much be approved by approvers!'
+        meta: 'Number of Appeals',
+        description: 'An appeal tries to withdraw money from the Drive balance! Appeals will be approved by approvers!'
       },
       {
         header: approversCount,
         meta: 'Number of Approvers',
-        description:'Number of people who have already donated to this campaign!'
+        description:'Number of people who have already donated to this drive!'
       },
       {
         header: web3.utils.fromWei(balance, 'ether'),
-        meta: 'Campaign Balance (ether)',
-        description: 'The balance shows how much money this campaign has left to spend!'
+        meta: 'Drive Balance (ether)',
+        description: 'The balance shows how much money this drive has left to spend!'
       }
     ]
     return <Card.Group items={items} />;
@@ -66,7 +66,7 @@ class CampaignShow extends Component {
     return (
       <Layout>
         <h1>
-          Campaign Details
+          Drive Details
         </h1>
         <Grid>
           <Grid.Row>
@@ -84,7 +84,7 @@ class CampaignShow extends Component {
                   <Button
                     primary
                   >
-                    View Requests
+                    View Appeals
                   </Button>
                 </a>
               </Link>

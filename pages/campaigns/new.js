@@ -35,7 +35,7 @@ class CampaignNew extends Component {
     return (
       <Layout>
         <h1>
-          Create a Campaign!
+          Create a Drive!
         </h1>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>

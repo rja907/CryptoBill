@@ -47,7 +47,7 @@ class  RequestNew extends Component {
           </a>
         </Link>
         <h1>
-          Create a Request!
+          Create an Appeal!
         </h1>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>

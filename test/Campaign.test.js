@@ -30,17 +30,17 @@ beforeEach(async () => {
 });
 
 describe('Campaigns', () => {
-  it('deploys a factory and a campaign', () => {
+  it('Deploys a Drivefactory and a Drive', () => {
     assert.ok(factory.options.address);
     assert.ok(campaign.options.address);
   });
 
-  it('marks caller as campaign manager', async () => {
+  it('Asserts the Drive maker as Drive Manager', async () => {
     const manager = await campaign.methods.manager().call();
     assert.equal(accounts[0], manager);
   });
 
-  it('allows people to contribute and marks them as approvers', async () => {
+  it('Allows public to contribute and gives them approval rights', async () => {
     await campaign.methods.contribute().send({
       value: '200',
       from: accounts[1]
@@ -49,7 +49,7 @@ describe('Campaigns', () => {
     assert(isContributor);
   });
 
-  it('requires a minimum contribution', async () => {
+  it('Requires at least a minimum Contribution', async () => {
     try {
       await campaign.methods.contribute().send({
         value: '5',
@@ -61,7 +61,7 @@ describe('Campaigns', () => {
     }
   });
 
-  it('allows manager to make payment request', async () => {
+  it('Allows manager to appeal for subtasks', async () => {
     await campaign.methods
       .createRequest('Buy something', '100', accounts[1])
       .send({
@@ -72,7 +72,7 @@ describe('Campaigns', () => {
     assert.equal('Buy something', request.description);
   });
 
-  it('processes requests', async () => {
+  it('processes appeals', async () => {
     await campaign.methods.contribute().send({
       from: accounts[0],
       value: web3.utils.toWei('10', 'ether')

@@ -8,9 +8,12 @@ export default () => {
       <Link route="/">
         <a className="item">CryptoBill</a>
       </Link>
+      <Link route="/">
+        <a className="item">Crytocurrency Crowdfunding for Billions</a>
+      </Link>
       <Menu.Menu position="right">
         <Link route="/">
-          <a className="item">Campaigns</a>
+          <a className="item">Drive</a>
         </Link>
         <Link route="/campaigns/new">
           <a className="item">+</a>

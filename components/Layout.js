@@ -11,7 +11,7 @@ export default (props) => {
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"
         />
-        <style>{`body { background: linear-gradient(to bottom right, #5AB9B1, #5EB8E4); } /* custom! */`}</style>
+        
       </Head>
       <Header />
       {props.children}
